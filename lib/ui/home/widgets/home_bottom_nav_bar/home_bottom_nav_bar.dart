@@ -1,5 +1,5 @@
 import 'package:cinebox_app_flutter/ui/core/themes/colors.dart';
-import 'package:cinebox_app_flutter/ui/home/widget/home_bottom_nav_bar_item/home_bottom_nav_bar_item.dart';
+import 'package:cinebox_app_flutter/ui/home/widgets/home_bottom_nav_bar_item/home_bottom_nav_bar_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomNavBar extends StatefulWidget {
