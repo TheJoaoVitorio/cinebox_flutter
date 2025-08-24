@@ -15,7 +15,7 @@ class SignInGoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurpleAccent),
       onPressed: onPressed,
       child: Stack(
         alignment: Alignment.center,
@@ -36,7 +36,7 @@ class SignInGoogleButton extends StatelessWidget {
           ),
           Text(
             !isLoading ? 'Entrar com o Google' : 'Realizando login...',
-            style: TextStyle(fontSize: 14, color: AppcColors.darkGrey),
+            style: TextStyle(fontSize: 14, color: AppcColors.backgroundColor),
           ),
         ],
       ),
