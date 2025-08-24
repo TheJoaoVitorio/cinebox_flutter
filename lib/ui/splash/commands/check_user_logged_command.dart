@@ -19,9 +19,5 @@ class CheckUserLoggedCommand extends _$CheckUserLoggedCommand {
       Success(value: final isLogged) => AsyncValue.data(isLogged),
       Failure(:final error) => AsyncValue.error(error, StackTrace.current),
     };
-
-    await Future.delayed(const Duration(seconds: 2));
-
-    state = AsyncValue.data(false);
   }
 }
