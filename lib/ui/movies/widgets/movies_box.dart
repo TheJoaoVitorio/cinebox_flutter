@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class MoviesBox extends StatelessWidget {
   final String title;
+  final bool vertical;
 
-  const MoviesBox({super.key, required this.title});
+  const MoviesBox({super.key, required this.title, this.vertical = false});
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +24,36 @@ class MoviesBox extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
         ),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width,
-          height: 250,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(right: 16),
-                child: MovieCard(),
-              );
-            },
+        Visibility(
+          visible: !vertical,
+          replacement: Center(
+            child: Wrap(
+              spacing: 16,
+              runSpacing: 12,
+              runAlignment: WrapAlignment.center,
+              children: [
+                for (int i = 0; i < 10; i++)
+                  Container(
+                    margin: EdgeInsets.only(right: 16, bottom: 16),
+                    child: MovieCard(),
+                  ),
+              ],
+            ),
+          ),
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width,
+            height: 250,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(right: 16),
+                  child: MovieCard(),
+                );
+              },
+            ),
           ),
         ),
       ],

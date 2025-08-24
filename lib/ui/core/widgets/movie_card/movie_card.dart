@@ -91,7 +91,7 @@ class _MovieCardState extends ConsumerState<MovieCard> {
                 onPressed: () {},
                 icon: Icon(
                   Icons.favorite_border,
-                  color: Colors.white,
+                  color: AppcColors.colorPrimary,
                   size: 20,
                 ),
               ),
