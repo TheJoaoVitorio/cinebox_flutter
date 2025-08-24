@@ -1,3 +1,4 @@
+import 'package:cinebox_app_flutter/ui/core/widgets/loader_messages/loader_messages.dart';
 import 'package:cinebox_app_flutter/ui/login/commands/login_with_google_command.dart';
 import 'package:cinebox_app_flutter/ui/login/login_view_model.dart';
 import 'package:cinebox_app_flutter/ui/login/widgets/sign_in_google_button.dart';
@@ -12,9 +13,21 @@ class LoginScreen extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen>
+    with LoaderAndMessages {
   @override
   Widget build(BuildContext context) {
+    ref.listen(loginWithGoogleCommandProvider, (_, state) {
+      state.whenOrNull(
+        data: (_) {
+          Navigator.pushReplacementNamed(context, '/home');
+        },
+        error: (error, stackTrace) {
+          showErrorSnackbar('Erro ao realizar login com o Google');
+        },
+      );
+    });
+
     return Scaffold(
       body: Stack(
         children: [

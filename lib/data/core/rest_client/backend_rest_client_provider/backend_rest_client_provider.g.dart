@@ -44,7 +44,7 @@ final class BackendRestClientProvider extends $FunctionalProvider<Dio, Dio, Dio>
   }
 }
 
-String _$backendRestClientHash() => r'c50e3f87f1f5e1bd261ab192819fac334de920fe';
+String _$backendRestClientHash() => r'84ec1f4b2170c3ccc0e87831d52e3c721b0dc8ef';
 
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
