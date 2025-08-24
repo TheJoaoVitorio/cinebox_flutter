@@ -1,4 +1,5 @@
 import 'package:cinebox_app_flutter/data/models/genre/genre_response.dart';
+import 'package:cinebox_app_flutter/data/models/movie/movie_details_response.dart';
 import 'package:cinebox_app_flutter/data/models/movie/movie_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -34,5 +35,27 @@ abstract class TmdbService {
   Future<MovieResponse> getUpComingMovies({
     @Query('language') String language = 'pt-BR',
     @Query('page') int page = 1,
+  });
+
+  @GET('/search/movie')
+  Future<MovieResponse> searchMovies({
+    @Query('language') String language = 'pt-BR',
+    @Query('page') int page = 1,
+    @Query('query') required String query,
+  });
+
+  @GET('/discover/movie')
+  Future<MovieResponse> getMoviesByGenre({
+    @Query('language') String language = 'pt-BR',
+    @Query('page') int page = 1,
+    @Query('sort_by') String sortBy = 'popularity.desc',
+    @Query('with_genres') String? genreId,
+  });
+
+  @GET('/movie/{movie_id}?include_image_language=pt,null')
+  Future<MovieDetailsResponse> getMovieDetails({
+    @Path('movie_id') required int movieId,
+    @Query('language') String language = 'pt-BR',
+    @Query('append_to_response') String appendToResponse = 'images,credits,videos',
   });
 }

@@ -1,5 +1,5 @@
 import 'package:cinebox_app_flutter/core/result/result.dart';
-import 'package:cinebox_app_flutter/data/core/repositories/repositories_providers.dart';
+import 'package:cinebox_app_flutter/data/repositories/repositories_providers.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

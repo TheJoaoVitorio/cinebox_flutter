@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:cinebox_app_flutter/core/result/result.dart';
-import 'package:cinebox_app_flutter/data/core/repositories/auth/auth_repository.dart';
+import 'package:cinebox_app_flutter/data/repositories/auth/auth_repository.dart';
 import 'package:cinebox_app_flutter/data/exceptions/data_exception.dart';
 import 'package:cinebox_app_flutter/data/services/auth/auth_service.dart';
 import 'package:cinebox_app_flutter/data/services/google_sign_in/google_sign_in_service.dart';
