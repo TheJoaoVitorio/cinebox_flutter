@@ -4,6 +4,7 @@ import 'package:cinebox_app_flutter/data/services/google_sign_in/google_sign_in_
 import 'package:cinebox_app_flutter/data/services/google_sign_in/google_sign_in_service_impl.dart';
 import 'package:cinebox_app_flutter/data/services/local_storage/local_storage_service.dart';
 import 'package:cinebox_app_flutter/data/services/local_storage/local_storage_service_impl.dart';
+import 'package:cinebox_app_flutter/data/services/tmdb/tmdb_service.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -24,4 +25,9 @@ GoogleSignInService googleSignInService(Ref ref) {
 @Riverpod()
 AuthService authService(Ref ref) {
   return AuthService(ref.read(backendRestClientProvider));
+}
+
+@Riverpod()
+TmdbService tmdbService(Ref ref) {
+  return TmdbService(ref.read(backendRestClientProvider));
 }
