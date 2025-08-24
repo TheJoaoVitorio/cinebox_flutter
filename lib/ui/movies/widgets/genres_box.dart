@@ -48,7 +48,7 @@ class _GenresBoxState extends ConsumerState<GenresBox> {
                   child: Text(
                     'Gênero $index',
                     style: TextStyle(
-                      color: isSelected ? Colors.black : Colors.white70,
+                      color: isSelected ? Colors.white : Colors.white54,
                       fontWeight: isSelected
                           ? FontWeight.bold
                           : FontWeight.normal,

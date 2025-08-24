@@ -15,8 +15,8 @@ class _MoviesAppbarState extends ConsumerState<MoviesAppbar> {
   Widget build(BuildContext context) {
     return SliverAppBar(
       expandedHeight: MediaQuery.sizeOf(context).height * 0.15,
-      foregroundColor: Colors.white,
-      surfaceTintColor: Colors.transparent,
+      foregroundColor: Colors.transparent,
+      forceMaterialTransparency: true,
       elevation: 0,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(

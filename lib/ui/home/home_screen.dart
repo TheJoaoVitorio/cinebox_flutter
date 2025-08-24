@@ -1,5 +1,5 @@
 import 'package:cinebox_app_flutter/ui/core/themes/colors.dart';
-import 'package:cinebox_app_flutter/ui/home/widgets/home_bottom_nav_bar/home_bottom_nav_bar.dart';
+import 'package:cinebox_app_flutter/ui/home/widgets/home_bottom_nav_bar.dart';
 import 'package:cinebox_app_flutter/ui/movies/movies_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
