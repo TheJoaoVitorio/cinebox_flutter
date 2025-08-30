@@ -5,15 +5,15 @@ class MovieMappers {
   static List<Movie> mapToMovies(MovieResponse movieResponse) {
     return movieResponse.results
         .map(
-          (reponse) => Movie(
-            id: reponse.id,
-            title: reponse.title,
-            overview: reponse.overview,
-            posterPath: reponse.posterPath,
-            releaseDate: reponse.releaseDate,
-            voteAverage: reponse.voteAverage,
-            genreIds: reponse.genreIds ?? [],
-            backdropPath: reponse.backdropPath,
+          (response) => Movie(
+            id: response.id,
+            title: response.title,
+            overview: response.overview,
+            posterPath: response.posterPath,
+            releaseDate: response.releaseDate,
+            voteAverage: response.voteAverage ?? 0.0,
+            genreIds: response.genreIds ?? [],
+            backdropPath: response.backdropPath,
           ),
         )
         .toList();

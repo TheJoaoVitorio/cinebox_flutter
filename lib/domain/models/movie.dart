@@ -1,25 +1,25 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Movie {
   final int id;
   final String title;
   final String overview;
-  final String? posterPath;
-  final String? releaseDate;
-  final double voteAverage;
   final List<int> genreIds;
+  final String? posterPath;
   final String? backdropPath;
+  final double voteAverage;
+  final String? releaseDate;
   final bool isFavorite;
 
   Movie({
     required this.id,
     required this.title,
     required this.overview,
-    this.posterPath,
-    this.releaseDate,
-    required this.voteAverage,
     required this.genreIds,
+    this.posterPath,
     this.backdropPath,
+    required this.voteAverage,
+    this.releaseDate,
     this.isFavorite = false,
   });
 
@@ -27,22 +27,22 @@ class Movie {
     int? id,
     String? title,
     String? overview,
-    ValueGetter<String?>? posterPath,
-    ValueGetter<String?>? releaseDate,
-    double? voteAverage,
     List<int>? genreIds,
+    ValueGetter<String?>? posterPath,
     ValueGetter<String?>? backdropPath,
+    double? voteAverage,
+    ValueGetter<String?>? releaseDate,
     bool? isFavorite,
   }) {
     return Movie(
       id: id ?? this.id,
       title: title ?? this.title,
       overview: overview ?? this.overview,
-      posterPath: posterPath != null ? posterPath() : this.posterPath,
-      releaseDate: releaseDate != null ? releaseDate() : this.releaseDate,
-      voteAverage: voteAverage ?? this.voteAverage,
       genreIds: genreIds ?? this.genreIds,
+      posterPath: posterPath != null ? posterPath() : this.posterPath,
       backdropPath: backdropPath != null ? backdropPath() : this.backdropPath,
+      voteAverage: voteAverage ?? this.voteAverage,
+      releaseDate: releaseDate != null ? releaseDate() : this.releaseDate,
       isFavorite: isFavorite ?? this.isFavorite,
     );
   }

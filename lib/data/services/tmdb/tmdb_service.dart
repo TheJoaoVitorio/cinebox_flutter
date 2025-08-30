@@ -8,7 +8,7 @@ part 'tmdb_service.g.dart';
 
 @RestApi()
 abstract class TmdbService {
-  factory TmdbService(Dio dio, {String baseUrl}) = _TmdbService;
+  factory TmdbService(Dio dio, {String? baseUrl}) = _TmdbService;
 
   @GET('/genre/movie/list')
   Future<GenreResponse> getMovieGenres({@Query('language') String language = 'pt-BR'});
