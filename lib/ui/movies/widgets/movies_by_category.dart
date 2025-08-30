@@ -38,8 +38,9 @@ class _MoviesByCategoryState extends ConsumerState<MoviesByCategory> {
           child: Column(
             children: [
               MoviesBox(title: 'Mais Populares', movies: data.popular),
-              // MoviesBox(title: 'Em Alta' , movies: data.topRated),
-              // MoviesBox(title: 'Lançamentos', movies: data.upComing),
+              MoviesBox(title: 'Em Cartaz', movies: data.nowPlaying),
+              MoviesBox(title: 'Em Alta', movies: data.topRated),
+              MoviesBox(title: 'Em Breve', movies: data.upComing),
             ],
           ),
         );
