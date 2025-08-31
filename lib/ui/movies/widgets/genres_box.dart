@@ -47,6 +47,14 @@ class GenresBox extends ConsumerWidget {
               final genre = data[index];
               return InkWell(
                 onTap: () {
+                  if (selectedGenre.value == genre.id) {
+                    selectedGenre.value = 0;
+                    ref
+                        .read(moviesViewModelProvider.notifier)
+                        .fetchMoviesByCategory();
+                    return;
+                  }
+
                   selectedGenre.value = genre.id;
 
                   ref
