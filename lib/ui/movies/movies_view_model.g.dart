@@ -38,7 +38,7 @@ final class MoviesViewModelProvider
   }
 }
 
-String _$moviesViewModelHash() => r'660715176c1029d9e6e45c3e5a12f73dced7dfe7';
+String _$moviesViewModelHash() => r'af42f8172b34796bd62418745019d69f48f5ad90';
 
 abstract class _$MoviesViewModel extends $Notifier<MoviesViewEnum> {
   MoviesViewEnum build();
