@@ -8,7 +8,7 @@ A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo 
 ## ✨ Funcionalidades
 - 🔑 Autenticação com Google  
 - 🎥 Listagem de filmes a partir da API do **TMDB**  
-- ⭐ Favoritos salvos em serviço local  
+- ⭐ Favoritos salvos em serviço local (em desenvolvimento)
 - 🏗️ Arquitetura **MVVM**  
 - 📱 Interface moderna e responsiva  
 
