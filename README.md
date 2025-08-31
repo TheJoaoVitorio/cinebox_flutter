@@ -1,16 +1,55 @@
-# cinebox_app_flutter
+# 🎬 Cinebox Flutter
 
-A new Flutter project.
+Aplicativo desenvolvido em **Flutter** que consome a **API do TMDB**, com autenticação via **Google** e gerenciamento de **favoritos** através de um serviço em Dart.  
+A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo Google, garantindo escalabilidade e boas práticas no desenvolvimento.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Funcionalidades
+- 🔑 Autenticação com Google  
+- 🎥 Listagem de filmes a partir da API do **TMDB**  
+- ⭐ Favoritos salvos em serviço local  
+- 🏗️ Arquitetura **MVVM**  
+- 📱 Interface moderna e responsiva  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Como rodar o projeto  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/TheJoaoVitorio/cinebox_flutter.git
+   cd cinebox-flutter
+   ```
+
+2. Crie o arquivo `.env` na raiz do projeto com as seguintes variáveis:  
+   ```env
+   GOOGLE_API_KEY=xxxx
+   BACKEND_BASE_URL=xxxx
+   THE_MOVIE_DB_API_KEY=xxxx
+   THE_MOVIE_DB_BASE_URL=xxxx
+   ```
+
+3. Instale as dependências:  
+   ```bash
+   flutter pub get
+   ```
+
+4. Rode o projeto:  
+   ```bash
+   flutter run
+   ```
+
+---
+
+## 📸 Screens  
+
+| Tela Inicial | Detalhes do Filme | Favoritos |
+|--------------|-------------------|------------|
+| ![Home](screens/home.png) | ![Details](screens/details.png) | ![Favorites](screens/favorites.png) |
+
+
+---
+
+## 👨‍🏫 Créditos  
+Projeto de estudo ministrado por **Rodrigo Hahman (GDE)**.  
