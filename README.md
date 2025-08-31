@@ -48,7 +48,6 @@ A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo 
 |--------------|-------------------|------------|
 | ![Home](screens/home.png) | ![Details](screens/details.png) | ![Favorites](screens/favorites.png) |
 
-*(As imagens devem estar na pasta `screens/` do projeto.)*  
 
 ---
 
