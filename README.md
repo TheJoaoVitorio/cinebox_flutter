@@ -46,7 +46,7 @@ A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo 
 
 | Tela Inicial | Detalhes do Filme | Favoritos |
 |--------------|-------------------|------------|
-| ![Home](screens/home.png) | ![Details](screens/details.png) | ![Favorites](screens/favorites.png) |
+| ![Home](images_screens/HomePage.png) | ![Details](screens/details.png) | ![Favorites](screens/favorites.png) |
 
 
 ---
