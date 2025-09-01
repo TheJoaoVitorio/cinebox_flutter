@@ -35,11 +35,10 @@ class _MoviesAppbarState extends ConsumerState<MoviesAppbar> {
 
     if (_debounce?.isActive ?? false) _debounce?.cancel();
 
-    _debounce = Timer(
-      Duration(milliseconds: 500),
-      () =>
-          ref.read(moviesViewModelProvider.notifier).fetchMoviesBySearch(query),
-    );
+    _debounce = Timer(Duration(milliseconds: 500), () {
+      FocusScope.of(context).unfocus();
+      ref.read(moviesViewModelProvider.notifier).fetchMoviesBySearch(query);
+    });
   }
 
   @override
@@ -65,6 +64,10 @@ class _MoviesAppbarState extends ConsumerState<MoviesAppbar> {
             decoration: InputDecoration(
               hintText: 'Procurar Filmes',
               hintStyle: TextStyle(color: Colors.white70),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide(color: AppcColors.colorPrimary),
+              ),
               prefixIconConstraints: BoxConstraints(
                 minWidth: 0,
                 minHeight: 0,
@@ -77,6 +80,28 @@ class _MoviesAppbarState extends ConsumerState<MoviesAppbar> {
                   size: 18,
                 ),
               ),
+              suffixIcon: _searchController.text.isNotEmpty
+                  ? MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: InkWell(
+                        customBorder: const CircleBorder(),
+                        onTap: () {
+                          _searchController.clear();
+                          FocusScope.of(context).unfocus();
+                          if (onSearchChanged != null) onSearchChanged!('');
+                        },
+                        child: SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: Icon(
+                            Icons.close,
+                            size: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    )
+                  : null,
               filled: true,
               fillColor: AppcColors.bgColorSecondary,
               border: OutlineInputBorder(
