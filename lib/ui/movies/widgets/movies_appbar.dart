@@ -29,6 +29,7 @@ class _MoviesAppbarState extends ConsumerState<MoviesAppbar> {
 
   void onSearchChanged(String query) {
     if (query.isEmpty) {
+      _debounce?.cancel();
       ref.read(moviesViewModelProvider.notifier).fetchMoviesByCategory();
       return;
     }
