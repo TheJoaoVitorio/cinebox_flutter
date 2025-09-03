@@ -34,8 +34,20 @@ A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo 
    ```bash
    flutter pub get
    ```
+4. informe no arquivo `config.yml` que está na pasta `api` o seu `client_id` do google
+   ```bash
+   server:
+     port: 8080
+   log:
+     level: 0 # 0: Debug, 1: Info, 2: Warn, 3: Error
+   google:
+     client_id: xxxxxx
+   ```
+6. Agora rode o serviço que está na pasta api : `app_filmes_api-windows-amd64.exe`
+   - ele será responsável pela autenticação do usuário na aplicação e o salvamento dos filmes favoritos
+   
 
-4. Rode o projeto:  
+7. Rode o projeto:  
    ```bash
    flutter run
    ```
