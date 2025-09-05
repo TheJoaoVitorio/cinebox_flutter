@@ -1,6 +1,6 @@
 # 🎬 Cinebox Flutter
 
-Aplicativo desenvolvido em **Flutter** que consome a **API do TMDB**, com autenticação via **Google** e gerenciamento de **favoritos** através de um serviço em Dart.  
+Aplicativo desenvolvido em **Flutter** que consome a **API do TMDB**, com autenticação via **Google** e gerenciamento de **favoritos**.  
 A arquitetura segue o padrão **MVVM (Model-View-ViewModel)**, recomendada pelo Google, garantindo escalabilidade e boas práticas no desenvolvimento.  
 
 ---
