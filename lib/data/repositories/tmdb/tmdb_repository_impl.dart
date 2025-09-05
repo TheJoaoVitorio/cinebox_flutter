@@ -162,4 +162,7 @@ class TmdbRepositoryImpl implements TmdbRepository {
       return Failure(DataException('Erro ao buscar filme por busca'));
     }
   }
+  
+
+
 }

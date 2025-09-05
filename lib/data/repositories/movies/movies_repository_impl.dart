@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cinebox_app_flutter/core/result/result.dart';
 import 'package:cinebox_app_flutter/data/exceptions/data_exception.dart';
+import 'package:cinebox_app_flutter/data/models/save_favorite_movie/save_favorite_movie.dart';
 import 'package:cinebox_app_flutter/data/services/movies/movies_service.dart';
 
 import 'package:cinebox_app_flutter/domain/models/favorite_movie.dart';
@@ -35,6 +36,36 @@ class MoviesRepositoryImpl implements MoviesRepository {
     } on DioException catch (e, s) {
       log('Erro ao buscar favoritos', error: e, stackTrace: s);
       return Failure(DataException('Erro ao buscar favoritos'));
+    }
+  }
+
+  @override
+  Future<Result<Unit>> deleteFavoriteMovie({required int movieId}) async {
+    try {
+      await _moviesService.deleteFavoriteMovie(movieId);
+      return successOfUnit();
+    } on DioException catch (e, s) {
+      log('Erro ao deletar favoritos', error: e, stackTrace: s);
+      return Failure(DataException('Erro ao deletar favoritos'));
+    }
+  }
+
+  @override
+  Future<Result<Unit>> saveFavoriteMovie(FavoriteMovie favoriteMovie) async {
+    try {
+      await _moviesService.saveFavoriteMovie(
+        SaveFavoriteMovie(
+          movieId: favoriteMovie.id,
+          postUrl: favoriteMovie.posterPath,
+          title: favoriteMovie.title,
+          year: favoriteMovie.year,
+        ),
+      );
+
+      return successOfUnit();
+    } on DioException catch (e, s) {
+      log('Erro ao salvar filme nos favoritos', error: e, stackTrace: s);
+      return Failure(DataException('Erro ao salvar filme nos favoritos'));
     }
   }
 }
