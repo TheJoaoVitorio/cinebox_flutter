@@ -17,7 +17,7 @@ class SearchMoviesByNameCommand extends _$SearchMoviesByNameCommand {
     final result = await searchMovieUC.execute(search: name);
 
     state = switch (result) {
-      Success(:final value) => AsyncData(value),
+      Success(:final value) => AsyncData(value as List<Movie>),
       Failure() => AsyncError(
         Exception('Erro ao buscar filme por nome'),
         StackTrace.current,
