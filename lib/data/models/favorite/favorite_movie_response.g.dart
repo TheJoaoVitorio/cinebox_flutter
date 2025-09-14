@@ -9,8 +9,8 @@ part of 'favorite_movie_response.dart';
 FavoriteMovieResponse _$FavoriteMovieResponseFromJson(
   Map<String, dynamic> json,
 ) => FavoriteMovieResponse(
-  movieId: (json['movieId'] as num).toInt(),
-  posterUrl: json['posterUrl'] as String,
+  movieId: (json['movie_id'] as num).toInt(),
+  posterUrl: json['poster_url'] as String,
   title: json['title'] as String,
   year: (json['year'] as num).toInt(),
 );
@@ -18,8 +18,8 @@ FavoriteMovieResponse _$FavoriteMovieResponseFromJson(
 Map<String, dynamic> _$FavoriteMovieResponseToJson(
   FavoriteMovieResponse instance,
 ) => <String, dynamic>{
-  'movieId': instance.movieId,
-  'posterUrl': instance.posterUrl,
+  'movie_id': instance.movieId,
+  'poster_url': instance.posterUrl,
   'title': instance.title,
   'year': instance.year,
 };
