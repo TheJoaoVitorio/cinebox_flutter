@@ -40,6 +40,7 @@ class BackendAuthInterceptor extends Interceptor {
         navKey.currentContext!,
       ).pushNamedAndRemoveUntil('/login', (_) => false);
     }
+    handler.reject(err);
   }
 }
 
@@ -53,6 +54,7 @@ Dio backendRestClient(Ref ref) {
     ),
   );
 
+  print(Env.backendBaseUrl);
   dio.options.headers['Content-Type'] = 'application/json';
   dio.interceptors.addAll({
     BackendAuthInterceptor(ref: ref),
