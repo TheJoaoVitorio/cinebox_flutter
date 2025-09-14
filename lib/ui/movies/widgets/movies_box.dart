@@ -46,11 +46,10 @@ class MoviesBox extends StatelessWidget {
                       key: UniqueKey(),
                       id: movie.id,
                       title: movie.title,
-                      year:
-                          movie.releaseDate != null &&
+                      year: movie.releaseDate != null &&
                               movie.releaseDate!.isNotEmpty
-                          ? DateTime.parse(movie.releaseDate!).year.toString()
-                          : DateTime.now().year.toString(),
+                          ? DateTime.parse(movie.releaseDate!).year
+                          : DateTime.now().year,
                       imageUrl:
                           'https://images.tmdb.org/t/p/w154/${movie.posterPath}',
                       isFavorite: movie.isFavorite,
@@ -77,8 +76,8 @@ class MoviesBox extends StatelessWidget {
                       year:
                           movie.releaseDate != null &&
                               movie.releaseDate!.isNotEmpty
-                          ? DateTime.parse(movie.releaseDate!).year.toString()
-                          : DateTime.now().year.toString(),
+                          ? DateTime.parse(movie.releaseDate!).year
+                          : DateTime.now().year,
                       imageUrl:
                           'https://images.tmdb.org/t/p/w154/${movie.posterPath}',
                       isFavorite: movie.isFavorite,
