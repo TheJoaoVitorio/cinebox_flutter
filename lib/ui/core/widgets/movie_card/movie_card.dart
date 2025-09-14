@@ -1,13 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cinebox_app_flutter/ui/core/commands/favorite_movie_command.dart';
+import 'package:cinebox_app_flutter/ui/core/commands/save_favorite_movie_command.dart';
 import 'package:cinebox_app_flutter/ui/core/themes/colors.dart';
+import 'package:cinebox_app_flutter/ui/core/widgets/loader_messages/loader_messages.dart';
+import 'package:cinebox_app_flutter/ui/core/widgets/movie_card/movie_card_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieCard extends ConsumerStatefulWidget {
   final int id;
   final String title;
-  final String year;
+  final int year;
   final String imageUrl;
   final bool isFavorite;
   final VoidCallback? onFavoriteToggle;
@@ -26,7 +29,7 @@ class MovieCard extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _MovieCardState();
 }
 
-class _MovieCardState extends ConsumerState<MovieCard> {
+class _MovieCardState extends ConsumerState<MovieCard> with LoaderAndMessages {
   @override
   void initState() {
     super.initState();
@@ -40,6 +43,19 @@ class _MovieCardState extends ConsumerState<MovieCard> {
   @override
   Widget build(BuildContext context) {
     final isFavorite = ref.watch(favoriteMovieCommandProvider(widget.id));
+
+    ref.listen(saveFavoriteMovieCommandProvider(widget.key!, widget.id), (
+      _,
+      next,
+    ) {
+      next.whenOrNull(
+        error: (error, stackTrace) {
+          showErrorSnackbar(
+            'Desculpe, não foi possivel adicionar seu filme no favoritos',
+          );
+        },
+      );
+    });
 
     return Stack(
       children: [
@@ -92,7 +108,7 @@ class _MovieCardState extends ConsumerState<MovieCard> {
                 textAlign: TextAlign.center,
               ),
               Text(
-                widget.year,
+                widget.year.toString(),
                 style: TextStyle(
                   color: Colors.white70,
                   fontSize: 12,
@@ -115,7 +131,22 @@ class _MovieCardState extends ConsumerState<MovieCard> {
               radius: 20,
               backgroundColor: AppcColors.bgColorSecondary,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ref
+                      .read(
+                        movieCardViewModelProvider(
+                          widget.key!,
+                          widget.id,
+                        ).notifier,
+                      )
+                      .addOrRemoveFavorite(
+                        id: widget.id,
+                        title: widget.title,
+                        posterPath: widget.imageUrl,
+                        year: widget.year,
+                        favorite: !isFavorite,
+                      );
+                },
                 icon: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border,
                   color: AppcColors.colorPrimary,
