@@ -55,8 +55,8 @@ class MoviesRepositoryImpl implements MoviesRepository {
     try {
       await _moviesService.saveFavoriteMovie(
         SaveFavoriteMovie(
-          movieId: favoriteMovie.id,
-          postUrl: favoriteMovie.posterPath,
+          movie_Id: favoriteMovie.id,
+          post_Url: favoriteMovie.posterPath,
           title: favoriteMovie.title,
           year: favoriteMovie.year,
         ),
